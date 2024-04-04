@@ -17,10 +17,10 @@ export const api = {
 };
 
 const getLastEvent = (data) => {
-    const variable = data?.events.sort((evtA, evtB) =>
+    const mostRecent = data?.events.sort((evtA, evtB) =>
         new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
     );
-    const lastEvent = variable[0];
+    const lastEvent = mostRecent[0];
 
     return lastEvent;
 };
