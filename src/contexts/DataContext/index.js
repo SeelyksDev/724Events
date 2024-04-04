@@ -17,9 +17,12 @@ export const api = {
 };
 
 const getLastEvent = (data) => {
-    const mostRecent = data?.events.sort((evtA, evtB) =>
+    const events = [...data.events];
+
+    const mostRecent = events.sort((evtA, evtB) =>
         new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
     );
+
     const lastEvent = mostRecent[0];
 
     return lastEvent;
